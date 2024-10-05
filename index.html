@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Quiz Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   
+    <div id="login-container">
+        <h1>Login</h1>
+        <form id="login-form" onsubmit="event.preventDefault(); loginUser();">
+            <input type="text" id="username" placeholder="Enter username" required>
+            <input type="password" id="password" placeholder="Enter password" required>
+            <button class="btn" type="submit">Login</button>
+        </form>
+        <p id="login-error" class="hidden">Wrong credentials, please try again.</p>
+    </div>
+
+    <div id="quiz-container" class="hidden">
+        <h1><i class="fas fa-laptop-code"> DSAga</i> </h1>
+        <div id="question-container">
+            <p id="question"></p>
+        </div>
+        <div id="answer-buttons" class="btn-container"></div>
+        <div id="controls">
+            <div id="timer">
+                <i class="fas fa-hourglass-half"></i> Timer: <span id="time-left"></span>s
+            </div>
+            <div id="score">
+                <i class="fas fa-star"></i> Your Score: <span id="current-score"></span>
+            </div>
+        </div>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <button id="next-button" class="btn hidden" onclick="nextQuestion()">
+            <i class="fas fa-arrow-right"></i> Next 
+        </button>
+        <button id="start-button" class="btn" onclick="startGame()">
+            <i class="fas fa-play"></i> Let's begin
+        </button>
+    </div>
+
+
+    <div id="result-container" class="hidden">
+        <h1>Score Card</h1>
+        <div id="result-emoji"></div>
+        <div id="result-message"></div>
+        <button id="restart-button" class="btn" onclick="restartQuiz()">
+            <i class="fas fa-redo"></i> Restart Quiz
+        </button>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
