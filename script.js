@@ -189,7 +189,7 @@ function nextQuestion() {
         startTimer();
         showQuestion();
     } else {
-        showFinalScore();
+        showFinalScore(); 
     }
 }
 
@@ -203,6 +203,7 @@ function showFinalScore() {
     document.getElementById('quiz-container').classList.add('hidden');
     const resultContainer = document.getElementById('result-container');
     resultContainer.classList.remove('hidden');
+
     let emoji = '😐';
     let message = '';
 
@@ -220,19 +221,7 @@ function showFinalScore() {
     document.getElementById("result-emoji").innerText = emoji;
     document.getElementById("result-message").innerText = `You scored ${score} out of ${questions.length}.\n${message}`;
 }
+
 function restartQuiz() {
     startGame();
-}
-function loginUser() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    // Dummy authentication logic for demonstration (replace with real authentication)
-    if (username === "user" && password === "password") {
-        document.getElementById("login-container").classList.add("hidden");
-        document.getElementById("quiz-container").classList.remove("hidden");
-        startGame(); 
-    } else {
-        document.getElementById("login-error").classList.remove("hidden");
-    }
 }

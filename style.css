@@ -14,7 +14,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    background-color: #98badd; /* Added body background color */
+    background-color: #98badd;
 }
 
 h1, h2 {
@@ -22,196 +22,212 @@ h1, h2 {
     color: #2c3e50;
 }
 
-#quiz-container, #login-container, #result-container {
+/* Quiz container */
+#quiz-container, #result-container {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 450px;
+    max-width: 600px;
     text-align: center;
     transition: all 0.3s ease-in-out;
+    margin: 20px;
 }
 
-/* Login form */
-#login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-input[type="text"], input[type="password"] {
-    padding: 15px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus, input[type="password"]:focus {
-    border-color: #1abc9c;
-}
-
-#login-container h1 {
+/* Title */
+#quiz-container h1 {
     margin-bottom: 20px;
-    font-size: 30px;
+    font-size: 32px;
+    color: #34495e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#quiz-container i {
+    margin-right: 8px;
+}
+
+/* Question and Answer */
+#question-container {
+    margin: 20px 0;
+    font-size: 24px;
     color: #34495e;
 }
 
-#login-error {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-/* Buttons */
-.btn {
-    background-color: #1abc9c;
-    color: #fff;
-    padding: 12px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+#answer-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
-    transition: background-color 0.3s ease, transform 0.2s;
-}
-
-.btn:hover {
-    background-color: #16a085;
-    transform: translateY(-3px);
-}
-
-#next-button, #start-button, #restart-button {
-    margin: 15px auto;
-    display: block;
-    width: 100%;
-}
-
-/* Quiz styles */
-#question-container {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    font-size: 20px;
-    color: #2c3e50;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 #answer-buttons .btn {
     margin: 10px 0;
-    width: 100%;
-    padding: 10px;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1abc9c;
+    color: white;
     font-size: 16px;
-    background-color: #f5f5f5;
-    color: #2c3e50;
-    border: 2px solid transparent;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 50%;
+    max-width: 250px;
+    text-align: center;
+    margin: 20px auto ;
 }
 
-#answer-buttons .btn:hover {
-    background-color: #e1e1e1;
-    border-color: #3498db;
+.btn:hover {
+    background-color: #16a085;
 }
 
+/* Timer, Score, and Progress */
 #controls {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
-    font-size: 16px;
-    color: #7f8c8d;
+    margin: 20px 0;
 }
 
-/* Linear Progress Bar */
+#timer, #score {
+    font-size: 16px;
+    color: #2c3e50;
+}
+
 #progress-container {
-    margin-top: 20px;
-    background-color: #ecf0f1;
-    border-radius: 10px;
-    overflow: hidden;
-    height: 10px;
     width: 100%;
+    background-color: #eee;
+    border-radius: 10px;
+    margin-top: 20px;
+    height: 10px;
+    overflow: hidden;
 }
 
 #progress-bar {
+    background-color: #1abc9c;
     height: 100%;
-    width: 0%; /* Will be updated dynamically */
-    background-color: #2ecc71;
-    transition: width 0.5s ease;
+    width: 0%;
+    transition: width 1s ease;
 }
 
-/* Result styles */
+/* Result Container */
 #result-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    animation: fadeInScaleUp 0.8s ease forwards;
-    margin-top: 50px;
-    margin-left: 100px; 
+    display: none;
 }
 
-#result-emoji {
-    font-size: 80px;
+#result-container h1 {
     margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
-#result-emoji:hover {
-    transform: scale(1.2);
-}
-
-#result-message {
-    font-size: 20px;
-    margin-bottom: 30px;
+    font-size: 32px;
     color: #34495e;
 }
 
-/* Animations */
-@keyframes fadeInScaleUp {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
+#result-emoji {
+    font-size: 60px;
+    margin: 20px 0;
+}
+
+#result-message {
+    font-size: 24px;
+    color: #34495e;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    body {
+        padding: 15px;
     }
-    100% {
-        opacity: 1;
-        transform: scale(1);
+
+    #quiz-container, #result-container {
+        padding: 30px;
+        max-width: 90%;
+    }
+
+    #quiz-container h1 {
+        font-size: 28px;
+    }
+
+    #answer-buttons .btn {
+        font-size: 14px;
+    }
+
+    #controls {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    #timer, #score {
+        margin-bottom: 10px;
+    }
+
+    #progress-container {
+        height: 8px;
     }
 }
 
-.hidden {
-    display: none;
-}
 @media (max-width: 768px) {
-    h1, h2 {
+    body {
+        padding: 10px;
+    }
+
+    #quiz-container, #result-container {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    #quiz-container h1 {
         font-size: 24px;
     }
 
-    input[type="text"], input[type="password"], .btn {
+    .btn {
+        padding: 10px 15px;
         font-size: 14px;
-        padding: 12px;
     }
 
-    #login-container h1, #result-message {
-        font-size: 20px;
+    #controls {
+        flex-direction: column;
+        align-items: center;
     }
 
-    #question-container {
-        font-size: 16px;
+    #progress-container {
+        height: 8px;
     }
 }
 
 @media (max-width: 480px) {
-    h1, h2 {
+    body {
+        padding: 5px;
+    }
+
+    #quiz-container, #result-container {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    #quiz-container h1 {
         font-size: 20px;
     }
 
-    #quiz-container, #login-container, #result-container {
-        padding: 20px;
+    .btn {
+        padding: 8px 12px;
+        font-size: 12px;
     }
 
-    input[type="text"], input[type="password"], .btn {
-        font-size: 12px;
-        padding: 10px;
+    #controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #progress-container {
+        height: 6px;
+    }
+
+    #timer, #score {
+        font-size: 14px;
     }
 }
